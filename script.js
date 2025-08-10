@@ -1,7 +1,19 @@
+let currentColor = 'black';
+
 function removeAllSquares(){
 	let parent = document.querySelector(".grid");
 	while (parent.firstChild)
 		parent.removeChild(parent.firstChild);
+}
+
+function addHoverEffect()
+{
+	let boxes = document.querySelectorAll('.square');
+	boxes.forEach(box => {
+		box.addEventListener('mouseover', () => {
+		  box.style.backgroundColor = currentColor;
+		});
+	  });
 }
 
 function 	drawSquares(numOfSquares)
@@ -19,6 +31,7 @@ function 	drawSquares(numOfSquares)
 			grid.append(div);
 		}
 	}
+	addHoverEffect();
 }
 
 function changeGridSize()
@@ -53,3 +66,9 @@ document.addEventListener("DOMContentLoaded" ,function(){})
 {
 	drawSquares(16);
 }
+
+function changeColor(color)
+{
+	currentColor = color;
+}
+  
